@@ -1,0 +1,146 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: white;">
+    <button  onclick="dark()" >Dark</button>
+
+    <script>
+        const body = document.querySelector("body")
+
+       function dark() {
+        if (body.style.backgroundColor === "white") {
+            body.style.backgroundColor = " black";
+        }
+        else {
+            body.style.backgroundColor = "white";
+        }
+       }
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Progress - Tutor Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: lavender; /* Lavender background color */
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: lavenderblush;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+    }
+    h2 {
+      margin-top: 20px;
+      color: #333;
+    }
+    .chart-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .chart-placeholder {
+      width: 300px;
+      height: 300px;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 20px;
+      line-height: 300px;
+      font-size: 20px;
+      color: #999;
+    }
+    form {
+      margin-top: 20px;
+    }
+    label, textarea, input[type="submit"] {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Student Progress</h1>
+    
+    <h2>Weekly Performance</h2>
+    <div class="chart-container">
+      <canvas id="monthlyChart" width="300" height="300"></canvas>
+    </div>
+
+    <h2>Monthly Performance</h2>
+    <div class="chart-container">
+      <canvas id="weeklyChart" width="300" height="300"></canvas>
+    </div>
+
+    <h2>Yearly Performance</h2>
+    <div class="chart-container">
+      <canvas id="yearlyChart" width="300" height="300"></canvas>
+    </div>
+
+    <!-- Go to Learn Page Link -->
+    <div>
+      <a href="learn.html">Go to Learn Page</a>
+    </div>
+
+    <!-- Feedback Section -->
+    <h2>Feedback</h2>
+    <form action="#" method="post">
+      <label for="feedback">Your Feedback:</label>
+      <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea>
+      <button><a href="thank.html">Submit</a></button>
+    </form>
+  </div>
+  <!-- Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    // Sample data (replace with actual data)
+    const monthlyData = [30, 50, 20]; // Example data for monthly chart
+    const weeklyData = [40, 30, 30]; // Example data for weekly chart
+    const yearlyData = [60, 10, 30]; // Example data for yearly chart
+
+    // Chart configuration (replace with actual chart configurations)
+    const chartConfig = {
+      type: 'pie',
+      data: {
+        labels: ['Maths', 'Programming', 'Skill Building'],
+        datasets: [{
+          data: monthlyData, // Use respective data for each chart
+          backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'], // Example colors
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        title: {
+          display: true,
+          text: 'Student Performance'
+        }
+        // Add more configurations as needed
+      }
+    };
+
+    // Generate charts
+    const monthlyChart = new Chart(document.getElementById('monthlyChart'), chartConfig);
+    const weeklyChart = new Chart(document.getElementById('weeklyChart'), chartConfig);
+    const yearlyChart = new Chart(document.getElementById('yearlyChart'), chartConfig);
+  </script>
+</body>
+</html>
+
